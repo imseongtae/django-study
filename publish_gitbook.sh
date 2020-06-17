@@ -18,7 +18,7 @@ git clean -fx _book
 git add .
 
 # 커밋커밋!
-git commit -a -m "Update docs"
+git commit -a -m "docs: Update docs"
 
 # gh-pages 브랜치에 PUSH!
 git push origin gh-pages

@@ -122,8 +122,8 @@ def detail(request, question_id):
 `xxx_set` 속성을 제공한다. `Question` 테이블의 `question 레코드`에 연결된
 `Choice 테이블의 레코드` 모두를 뜻한다. 
 
-```html
 {% raw %}
+```html
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}
@@ -138,8 +138,8 @@ def detail(request, question_id):
   {% endfor %}
   <input type="submit" value="Vote">
 </form>
-{% endraw %}
 ```
+{% endraw %}
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -191,8 +191,8 @@ def results(request, question_id):
 `question` 객체 하나만 있어도 `question 레코드`에 연결된  
 `Choice 테이블의 레코드` 모두에 접근할 수 있다. 
 
-```html
 {% raw %}
+```html
 <h1>{{ qustion.question_text }}</h1>
 <ul>
   {% for choice in question.choice_set.all %}
@@ -209,8 +209,8 @@ def results(request, question_id):
     Home  
   </a>
 </button>
-{% endraw %}
 ```
+{% endraw %}
 
 **[⬆ back to top](#table-of-contents)**
 
