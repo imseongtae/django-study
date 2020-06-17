@@ -176,14 +176,14 @@
                                 <h1 id="polls">Polls</h1>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ol>
-<li><a href="#Settings">Settings</a></li>
-<li><a href="#Index-View">Index View</a></li>
-<li><a href="#Index-Template">Index Template</a></li>
-<li><a href="#Detail-View">Detail View</a></li>
-<li><a href="#Detail-Template">Detail Template</a></li>
-<li><a href="#Vote-View">Vote View</a></li>
-<li><a href="#Results-View">Results View</a></li>
-<li><a href="#Results-Template">Results Template</a></li>
+<li><a href="#settings">Settings</a></li>
+<li><a href="#index-view">Index View</a></li>
+<li><a href="#index-template">Index Template</a></li>
+<li><a href="#detail-view">Detail View</a></li>
+<li><a href="#detail-template">Detail Template</a></li>
+<li><a href="#vote-view">Vote View</a></li>
+<li><a href="#results-view">Results View</a></li>
+<li><a href="#results-template">Results Template</a></li>
 </ol>
 <hr>
 <h2 id="settings">Settings</h2>
@@ -265,7 +265,7 @@ admin.site.register(Choice)
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{ error_message }}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 {% endif %}
 
-<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;\{% url &apos;polls:vote&apos; question.id %\}&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{% url &apos;polls:vote&apos; question.id %}&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
   {% csrf_token %}
   {% for choice in question.choice_set.all %}
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;choice&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;choice{{ forloop.counter }}&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{{ choice.id }}&quot;</span>&gt;</span>
@@ -368,7 +368,7 @@ admin.site.register(Choice)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.2","depth":1,"next":{"title":"bookmark","level":"1.3","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-17T09:07:35.975Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-17T09:08:04.117Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.2","depth":1,"next":{"title":"bookmark","level":"1.3","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-17T09:11:31.203Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-17T09:12:30.143Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

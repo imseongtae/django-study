@@ -3,14 +3,14 @@
 
 ## Table of Contents
 
-  1. [Settings](#Settings)
-  1. [Index View](#Index-View)
-  1. [Index Template](#Index-Template)
-  1. [Detail View](#Detail-View)
-  1. [Detail Template](#Detail-Template)
-  1. [Vote View](#Vote-View)
-  1. [Results View](#Results-View)
-  1. [Results Template](#Results-Template)
+  1. [Settings](#settings)
+  1. [Index View](#index-view)
+  1. [Index Template](#index-template)
+  1. [Detail View](#detail-view)
+  1. [Detail Template](#detail-template)
+  1. [Vote View](#vote-view)
+  1. [Results View](#results-view)
+  1. [Results Template](#results-template)
 
 ---
 
@@ -130,7 +130,7 @@ def detail(request, question_id):
   <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-<form action="\{% url 'polls:vote' question.id %\}" method="post">
+<form action="{% url 'polls:vote' question.id %}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
