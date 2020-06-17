@@ -24,4 +24,4 @@ git commit -a -m "Update docs"
 git push origin gh-pages
 
 # 다시 master 브랜치로 돌아온다.
-git checkout master
+# git checkout master

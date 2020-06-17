@@ -123,6 +123,7 @@ def detail(request, question_id):
 `Choice 테이블의 레코드` 모두를 뜻한다. 
 
 ```html
+{% raw %}
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}
@@ -137,6 +138,7 @@ def detail(request, question_id):
   {% endfor %}
   <input type="submit" value="Vote">
 </form>
+{% endraw %}
 ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -190,6 +192,7 @@ def results(request, question_id):
 `Choice 테이블의 레코드` 모두에 접근할 수 있다. 
 
 ```html
+{% raw %}
 <h1>{{ qustion.question_text }}</h1>
 <ul>
   {% for choice in question.choice_set.all %}
@@ -206,6 +209,7 @@ def results(request, question_id):
     Home  
   </a>
 </button>
+{% endraw %}
 ```
 
 **[⬆ back to top](#table-of-contents)**

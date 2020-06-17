@@ -259,7 +259,8 @@ admin.site.register(Choice)
 <p><code>choice_set</code>&#xC740; 1:N &#xAD00;&#xACC4;&#xC5D0;&#xC11C; 1 &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; N&#xD14C;&#xC774;&#xBE14;&#xC758; &#xD56D;&#xBAA9;&#xB4E4;&#xC774;&#xB780; &#xC758;&#xBBF8;&#xB85C;
 <code>xxx_set</code> &#xC18D;&#xC131;&#xC744; &#xC81C;&#xACF5;&#xD55C;&#xB2E4;. <code>Question</code> &#xD14C;&#xC774;&#xBE14;&#xC758; <code>question &#xB808;&#xCF54;&#xB4DC;</code>&#xC5D0; &#xC5F0;&#xACB0;&#xB41C;
 <code>Choice &#xD14C;&#xC774;&#xBE14;&#xC758; &#xB808;&#xCF54;&#xB4DC;</code> &#xBAA8;&#xB450;&#xB97C; &#xB73B;&#xD55C;&#xB2E4;. </p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ question.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<pre><code class="lang-html">{% raw %}
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ question.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
 {% if error_message %}
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{ error_message }}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -273,6 +274,7 @@ admin.site.register(Choice)
   {% endfor %}
   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Vote&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+{% endraw %}
 </code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
 <h2 id="vote-view">Vote View</h2>
@@ -307,7 +309,8 @@ admin.site.register(Choice)
 </code></pre>
 <h2 id="results-template">Results Template</h2>
 <p><code>question</code> &#xAC1D;&#xCCB4; &#xD558;&#xB098;&#xB9CC; &#xC788;&#xC5B4;&#xB3C4; <code>question &#xB808;&#xCF54;&#xB4DC;</code>&#xC5D0; &#xC5F0;&#xACB0;&#xB41C;<br><code>Choice &#xD14C;&#xC774;&#xBE14;&#xC758; &#xB808;&#xCF54;&#xB4DC;</code> &#xBAA8;&#xB450;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB2E4;. </p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ qustion.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<pre><code class="lang-html">{% raw %}
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ qustion.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
   {% for choice in question.choice_set.all %}
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
@@ -323,6 +326,7 @@ admin.site.register(Choice)
     Home  
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+{% endraw %}
 </code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
 
@@ -368,7 +372,7 @@ admin.site.register(Choice)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.2","depth":1,"next":{"title":"bookmark","level":"1.3","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-17T08:57:22.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-17T08:59:18.558Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.2","depth":1,"next":{"title":"bookmark","level":"1.3","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-17T09:04:35.600Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-17T09:04:58.512Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
