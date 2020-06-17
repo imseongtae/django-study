@@ -129,7 +129,7 @@ def detail(request, question_id):
   <p><strong>{{ error_message }}</strong></p>
 {% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
+<form action="\{% url 'polls:vote' question.id %\}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
