@@ -1,0 +1,407 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>polls · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="bookmark.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="polls.html">
+            
+                <a href="polls.html">
+            
+                    
+                    polls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="bookmark.html">
+            
+                <a href="bookmark.html">
+            
+                    
+                    bookmark
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >polls</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="polls">Polls</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#Settings">Settings</a></li>
+<li><a href="#Index-View">Index View</a></li>
+<li><a href="#Index-Template">Index Template</a></li>
+<li><a href="#Detail-View">Detail View</a></li>
+<li><a href="#Detail-Template">Detail Template</a></li>
+<li><a href="#Vote-View">Vote View</a></li>
+<li><a href="#Results-View">Results View</a></li>
+<li><a href="#Results-Template">Results Template</a></li>
+</ol>
+<hr>
+<h2 id="settings">Settings</h2>
+<h3 id="add-application">Add Application</h3>
+<p><code>settings.py</code>&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xB4F1;&#xB85D;</p>
+<pre><code class="lang-python">INSTALLED_APPS = [
+    ...
+    <span class="hljs-string">&apos;polls.apps.PollsConfig&apos;</span>,
+]
+</code></pre>
+<h3 id="timezone">Timezone</h3>
+<pre><code class="lang-python">TIME_ZONE = <span class="hljs-string">&apos;Asia/Seoul&apos;</span>
+</code></pre>
+<h3 id="url-and-view-mapping">URL and View Mapping</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path, include
+
+urlpatterns = [
+    path(<span class="hljs-string">&apos;polls/&apos;</span>, include(<span class="hljs-string">&apos;polls.urls&apos;</span>)),
+]
+</code></pre>
+<p><code>polls/urls.py</code> &#xC5D0;&#xC11C;&#xB294; <code>app_name</code>&#xB97C; &#xD1B5;&#xD574; URL &#xD328;&#xD134;&#xC758; &#xC774;&#xB984;&#xC774; &#xCDA9;&#xB3CC;&#xC0DD;&#xAE30;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;<br><code>app_name</code>&#xC744; &#xD1B5;&#xD574;&#xC11C; <code>polls</code> &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD328;&#xD134;&#xC774;&#xB984;&#xC784;&#xC744; &#xBA85;&#xD655;&#xD788; &#xD560; &#xC218; &#xC788;&#xB2E4;.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path
+<span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views
+
+app_name = <span class="hljs-string">&apos;polls&apos;</span>
+urlpatterns = [
+  path(<span class="hljs-string">&apos;&apos;</span>, views.index, name=<span class="hljs-string">&quot;index&quot;</span>),
+  path(<span class="hljs-string">&apos;&lt;int:question_id&gt;/&apos;</span>, views.detail, name=<span class="hljs-string">&quot;detail&quot;</span>),
+  path(<span class="hljs-string">&apos;&lt;int:question_id&gt;/results&apos;</span>, views.results, name=<span class="hljs-string">&quot;results&quot;</span>),
+  path(<span class="hljs-string">&apos;&lt;int:question_id&gt;/vote&apos;</span>, views.vote, name=<span class="hljs-string">&quot;vote&quot;</span>),
+]
+</code></pre>
+<h3 id="admin">admin</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Question, Choice
+
+<span class="hljs-comment"># Register your models here.</span>
+admin.site.register(Question)
+admin.site.register(Choice)
+</code></pre>
+<h2 id="index-view">Index View</h2>
+<p><code>render</code>&#xB2E8;&#xCD95;&#xD568;&#xC218;&#xB97C; &#xD1B5;&#xD574; html &#xD30C;&#xC77C;&#xC5D0; <code>context</code> &#xBCC0;&#xC218;&#xB97C; &#xB2F4;&#xC544;&#xC11C; HTML &#xD14D;&#xC2A4;&#xD2B8;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0;, &#xC774;&#xB97C; HttpResponse &#xAC1D;&#xCCB4;&#xB97C; &#xD1B5;&#xD574; &#xBC18;&#xD658;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">(request)</span>:</span>
+  latest_question_list = Question.objects.all().order_by(<span class="hljs-string">&apos;-pub_date&apos;</span>)[:<span class="hljs-number">5</span>]
+  context = {<span class="hljs-string">&apos;latest_question_list&apos;</span>: latest_question_list}
+  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;polls/index.html&apos;</span>, context)
+</code></pre>
+<h2 id="index-template">Index Template</h2>
+<p>&#xD15C;&#xD50C;&#xB9BF;&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD55C; <code>Question &#xAC1D;&#xCCB4;</code>&#xC758; &#xB9AC;&#xC2A4;&#xD2B8;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xB294; &#xC815;&#xBCF4;&#xB294;<br><code>latest_question_list</code> &#xBCC0;&#xC218;&#xB97C; &#xD1B5;&#xD574; <code>views.index</code>&#xB85C;&#xBD80;&#xD130; &#xB118;&#xACA8;&#xBC1B;&#xB294;&#xB2E4;.</p>
+<pre><code class="lang-html">{% if latest_question_list %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    {% for question in latest_question_list %}
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/polls/{{ question.id }}&quot;</span>&gt;</span>{{ question.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    {% endfor %}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+{% else %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>No Polls are available!<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="detail-view">Detail View</h2>
+<p><code>get_object_or_404</code> &#xD568;&#xC218;&#xB85C; &#xB118;&#xACA8;&#xBC1B;&#xB294; &#xCCAB; &#xBC88;&#xC9F8; &#xC778;&#xC790;&#xB294; &#xBAA8;&#xB378; &#xD074;&#xB798;&#xC2A4;, &#xB450; &#xBC88;&#xC9F8; &#xC778;&#xC790;&#xB294; &#xAC80;&#xC0C9;&#xC870;&#xAC74;&#xC774;&#xB2E4;.<br><code>Question</code>&#xBAA8;&#xB378; &#xD074;&#xB798;&#xC2A4;&#xC758; <code>pk</code>&#xAC00; <code>question_id</code>&#xC778; &#xAC80;&#xC0C9; &#xC870;&#xAC74;&#xC5D0; &#xB9DE;&#xB294; &#xAC1D;&#xCCB4;&#xB97C; &#xC870;&#xD68C;&#xD558;&#xC5EC;, &#xC870;&#xAC74;&#xC5D0; &#xB9DE;&#xB294; &#xAC1D;&#xCCB4;&#xAC00; &#xC5C6;&#xB2E4;&#xBA74; Http404 &#xC608;&#xC678;&#xB97C; &#xBC1C;&#xC0DD;<br>URL&#xD328;&#xD134;&#xC5D0;&#xC11C; &#xC815;&#xADDC;&#xD45C;&#xD604;&#xC2DD;&#xC73C;&#xB85C; &#xCD94;&#xCD9C;&#xD55C; <code>question_id</code> &#xD30C;&#xB9AC;&#xBBF8;&#xD130;&#xAC00; &#xBDF0;&#xD568;&#xC218;&#xC758; &#xC778;&#xC790;&#xB85C; &#xB118;&#xC5B4;&#xC634;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">detail</span><span class="hljs-params">(request, question_id)</span>:</span>
+  question = get_object_or_404(Question, pk=question_id)
+  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;polls/detail.html&apos;</span>, {<span class="hljs-string">&apos;question&apos;</span>: question})
+</code></pre>
+<h2 id="detail-template">Detail Template</h2>
+<p><code>choice_set</code>&#xC740; 1:N &#xAD00;&#xACC4;&#xC5D0;&#xC11C; 1 &#xD14C;&#xC774;&#xBE14;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; N&#xD14C;&#xC774;&#xBE14;&#xC758; &#xD56D;&#xBAA9;&#xB4E4;&#xC774;&#xB780; &#xC758;&#xBBF8;&#xB85C;
+<code>xxx_set</code> &#xC18D;&#xC131;&#xC744; &#xC81C;&#xACF5;&#xD55C;&#xB2E4;. <code>Question</code> &#xD14C;&#xC774;&#xBE14;&#xC758; <code>question &#xB808;&#xCF54;&#xB4DC;</code>&#xC5D0; &#xC5F0;&#xACB0;&#xB41C;
+<code>Choice &#xD14C;&#xC774;&#xBE14;&#xC758; &#xB808;&#xCF54;&#xB4DC;</code> &#xBAA8;&#xB450;&#xB97C; &#xB73B;&#xD55C;&#xB2E4;. </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ question.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+{% if error_message %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{ error_message }}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+{% endif %}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{% url &apos;polls:vote&apos; question.id %}&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+  {% csrf_token %}
+  {% for choice in question.choice_set.all %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;choice&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;choice{{ forloop.counter }}&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{{ choice.id }}&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;choice{{ forloop.counter }}&quot;</span>&gt;</span>{{ choice.choice_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+  {% endfor %}
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Vote&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="vote-view">Vote View</h2>
+<p><code>/polls/3/vote/</code> &#xC640; &#xAC19;&#xC740; URL&#xC774; <code>detail.html</code>&#xC5D0;&#xC11C; <code>submit</code>&#xBC84;&#xD2BC;&#xC744; &#xD1B5;&#xD574; &#xC81C;&#xCD9C;&#xB418;&#xBA74; <code>form</code>&#xC758; <code>action</code> attribute&#xC5D0; &#xC758;&#xD574;&#xC11C; POST &#xBC29;&#xC2DD;&#xC73C;&#xB85C; <code>vote</code>&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.<br><code>vote</code> &#xBDF0; &#xD568;&#xC218;&#xB294; form&#xC73C;&#xB85C;&#xBD80;&#xD130; &#xB118;&#xC5B4;&#xC628; <code>POST</code> &#xB370;&#xC774;&#xD130;&#xB97C; &#xCC98;&#xB9AC;&#xD55C;&#xB2E4;.</p>
+<p><code>request.POST[&apos;choice&apos;]</code>&#xB294; &#xD3FC;&#xC5D0;&#xC11C; &#xD0A4;&#xAC00; <code>choice</code>&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xAC12;&#xC778; <code>choice.id</code>&#xB97C; &#xC2A4;&#xD2B8;&#xB9C1;&#xC73C;&#xB85C; &#xB9AC;&#xD134;&#xD55C;&#xB2E4;. </p>
+<p><code>selected_choice.votes</code>&#xC744; 1&#xC99D;&#xAC00;&#xC2DC;&#xD0A4;&#xACE0;, &#xBCC0;&#xACBD;&#xC0AC;&#xD56D;&#xC744; <code>selected_choice.save()</code>&#xC744; &#xD1B5;&#xD574; &#xC800;&#xC7A5;</p>
+<p><code>HttpResponseRedirect</code>&#xC758; &#xC0DD;&#xC131;&#xC790;&#xB294; &#xC778;&#xC790;&#xB85C; Redirect&#xD560; &#xD0C0;&#xAC9F;&#xC744; &#xC778;&#xC790;&#xB85C; &#xBC1B;&#xB294;&#xB370;, &#xC774;&#xB97C; &#xC704;&#xD574; <code>reverse</code> &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD55C;&#xB2E4;. <code>reverse</code>&#xB97C; &#xD1B5;&#xD574; URL&#xC744; &#xCD94;&#xCD9C;&#xD558;&#xACE0; Redirect&#xC758; &#xACB0;&#xACFC;&#xB85C; <code>results.view</code>&#xD568;&#xC218;&#xB97C; &#xD638;&#xCD9C;&#xD55C;&#xB2E4;.</p>
+<p><code>POST</code> &#xB370;&#xC774;&#xD130;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xACBD;&#xC6B0; &#xACB0;&#xACFC; &#xD398;&#xC774;&#xC9C0;&#xB85C; &#xC774;&#xB3D9;&#xD558;&#xAE30; &#xC704;&#xD574; <code>HttpResponseRedirect</code>&#xAC1D;&#xCCB4;&#xB97C; &#xB9AC;&#xD134;&#xD55C;&#xB2E4;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponseRedirect 
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">vote</span><span class="hljs-params">(request, question_id)</span>:</span>
+  question = get_object_or_404(Question, pk=question_id)
+  <span class="hljs-keyword">try</span>:
+    selected_choice = question.choice_set.get(pk=request.POST[<span class="hljs-string">&apos;choice&apos;</span>])
+  <span class="hljs-keyword">except</span> (KeyError, Choice.DoesNotExist):
+    context = {
+      <span class="hljs-string">&apos;question&apos;</span>: question,
+      <span class="hljs-string">&apos;error_message&apos;</span>: <span class="hljs-string">&quot;You didn&apos;t select a choice.&quot;</span>
+    }
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;polls/detail.html&apos;</span>, context)
+  <span class="hljs-keyword">else</span>:
+    selected_choice.votes += <span class="hljs-number">1</span>
+    selected_choice.save()
+    <span class="hljs-keyword">return</span> HttpResponseRedirect(reverse(<span class="hljs-string">&apos;polls:results&apos;</span>, args=(question.id, )))
+</code></pre>
+<h2 id="results-view">Results View</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">results</span><span class="hljs-params">(request, question_id)</span>:</span>
+  question = get_object_or_404(Question, pk=question_id)
+  context = {<span class="hljs-string">&apos;question&apos;</span>: question}
+  <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;polls/results.html&apos;</span>, context)
+</code></pre>
+<h2 id="results-template">Results Template</h2>
+<p><code>question</code> &#xAC1D;&#xCCB4; &#xD558;&#xB098;&#xB9CC; &#xC788;&#xC5B4;&#xB3C4; <code>question &#xB808;&#xCF54;&#xB4DC;</code>&#xC5D0; &#xC5F0;&#xACB0;&#xB41C;<br><code>Choice &#xD14C;&#xC774;&#xBE14;&#xC758; &#xB808;&#xCF54;&#xB4DC;</code> &#xBAA8;&#xB450;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB2E4;. </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>{{ qustion.question_text }}<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  {% for choice in question.choice_set.all %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+      {{ choice.choice_text }} - {{ choice.votes}} vote{{ choice.votes|pluralize }}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  {% endfor %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;{% url &apos;polls:detail&apos; question.id %}&quot;</span>&gt;</span>Vote again<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/polls/&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-decoration: none;&quot;</span>&gt;</span>
+    Home  
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="bookmark.html" class="navigation navigation-next " aria-label="Next page: bookmark">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.2","depth":1,"next":{"title":"bookmark","level":"1.3","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-17T08:39:55.456Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-17T08:48:02.080Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
