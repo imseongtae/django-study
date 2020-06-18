@@ -19,6 +19,7 @@ Django를 학습하시고 모두 소원하는 바를 이루세용🙏
 
 ## 학습 목차
 
+- hello world
 - polls App
 - bookmark App
 - 게시판
