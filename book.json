@@ -1,0 +1,11 @@
+{
+  "plugins": ["ga", "-sharing"],
+  "pluginsConfig": {
+      "ga": {
+          "token": "UA-158669989-1"
+      }
+  },
+  "variables": {
+    "BASE_URL": "https://imseongtae.github.io"
+  }
+}
