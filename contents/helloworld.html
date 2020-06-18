@@ -247,6 +247,45 @@
 </tr>
 </tbody>
 </table>
+<h2 id="hello-world-&#xD504;&#xB85C;&#xC81D;&#xD2B8;-&#xC2DC;&#xC791;">hello world &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xC2DC;&#xC791;</h2>
+<ul>
+<li>hello world&#xB97C; &#xC6F9; &#xC0AC;&#xC774;&#xD2B8;&#xC5D0; &#xD45C;&#xD604;&#xD574;&#xBCF4;&#xB294; &#xAC04;&#xB2E8;&#xD55C; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li>windows &#xD658;&#xACBD;&#xC77C; &#xACBD;&#xC6B0;&#xB294; &#xC544;&#xB798; &#xBA85;&#xB839;&#xC5B4;&#xB97C; console&#xC5D0; &#xADF8;&#xB300;&#xB85C; &#xC785;&#xB825;&#xD558;&#xBA74; &#xB418;&#xC9C0;&#xB9CC; &#xB9E5;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC870;&#xAE08; &#xB2E4;&#xB985;&#xB2C8;&#xB2E4;.</li>
+<li><a href="https://freehoon.tistory.com/135" target="_blank">&#xB9E5;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC124;&#xC815; &#xBC29;&#xBC95;&#xC774; &#xC870;&#xAE08; &#xB2E4;&#xB97C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</a></li>
+</ul>
+<h3 id="django-setting">django setting</h3>
+<p>&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC9C4;&#xD589;&#xD560; &#xD3F4;&#xB354; &#xC0DD;&#xC131;</p>
+<pre><code>mkdir helloworld
+cd helloworld
+</code></pre><p>&#xC7A5;&#xACE0; &#xC124;&#xCE58;</p>
+<pre><code class="lang-python">pip install django
+</code></pre>
+<h3 id="config-setting-&#xD504;&#xB85C;&#xC81D;&#xD2B8;-&#xC0DD;&#xC131;">config setting (&#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xC0DD;&#xC131;)</h3>
+<p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xD504;&#xB85C;&#xC81D;&#xD2B8; &#xC804;&#xCCB4;&#xC758; &#xC124;&#xC815;&#xC744; &#xB2F4;&#xB2F9;&#xD558;&#xB294; &#xD3F4;&#xB354;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-python">django-admin startproject config . <span class="hljs-comment"># O</span>
+django-admin startproject config  <span class="hljs-comment"># X</span>
+</code></pre>
+<h3 id="migrate">migrate</h3>
+<pre><code class="lang-python">python manage.py migrate
+</code></pre>
+<h3 id="&#xC791;&#xC5C5;-&#xB0B4;&#xC5ED;-&#xD655;&#xC778;&#xC744;-&#xC704;&#xD574;-&#xC11C;&#xBC84;-&#xC2E4;&#xD589;">&#xC791;&#xC5C5; &#xB0B4;&#xC5ED; &#xD655;&#xC778;&#xC744; &#xC704;&#xD574; &#xC11C;&#xBC84; &#xC2E4;&#xD589;</h3>
+<pre><code class="lang-python">python manage.py runserver
+</code></pre>
+<h3 id="&#xAD00;&#xB9AC;&#xC790;-&#xACC4;&#xC815;-&#xC0DD;&#xC131;">&#xAD00;&#xB9AC;&#xC790; &#xACC4;&#xC815; &#xC0DD;&#xC131;</h3>
+<pre><code class="lang-python">python manage.py createsuperuser
+
+<span class="hljs-comment"># &#xACC4;&#xC815;: admin</span>
+<span class="hljs-comment"># &#xC774;&#xBA54;&#xC77C;: Your email</span>
+<span class="hljs-comment"># &#xBE44;&#xBC00;&#xBC88;&#xD638;: admin1234</span>
+</code></pre>
+<ul>
+<li>&#xAD00;&#xB9AC;&#xC790; &#xACC4;&#xC815; &#xC0DD;&#xC131; &#xD6C4; </li>
+<li><a href="http://127.0.0.1:8000/admin/" target="_blank">http://127.0.0.1:8000/admin/</a> &#xC5D0;&#xC11C; &#xAD00;&#xB9AC;&#xC790; &#xC811;&#xC18D;</li>
+</ul>
+<hr>
+<h3 id="&#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xC0DD;&#xC131;">&#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xC0DD;&#xC131;</h3>
+<pre><code class="lang-python">python manage.py startapp polls
+</code></pre>
 
                                 
                                 </section>
@@ -290,7 +329,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"hello world","level":"1.2","depth":1,"next":{"title":"polls","level":"1.3","depth":1,"path":"contents/polls.md","ref":"contents/polls.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/helloworld.md","mtime":"2020-06-18T02:50:09.883Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-18T03:59:37.165Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"hello world","level":"1.2","depth":1,"next":{"title":"polls","level":"1.3","depth":1,"path":"contents/polls.md","ref":"contents/polls.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/helloworld.md","mtime":"2020-06-18T05:04:44.219Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-18T05:04:55.168Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

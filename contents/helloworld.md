@@ -49,3 +49,69 @@ djagno는 웹 프로그램을 개발하는 데 사용하는 파이썬 웹 프레
 | python manage.py createsuperuser | 관리자 계정 생성                        |
 
 
+
+## hello world 프로젝트 시작
+
+- hello world를 웹 사이트에 표현해보는 간단한 프로젝트를 시작합니다.
+- windows 환경일 경우는 아래 명령어를 console에 그대로 입력하면 되지만 맥의 경우는 조금 다릅니다.
+- [맥의 경우는 설정 방법이 조금 다를 수 있습니다.](https://freehoon.tistory.com/135)
+
+
+### django setting
+프로젝트를 진행할 폴더 생성
+
+```
+mkdir helloworld
+cd helloworld
+```
+
+장고 설치
+
+```python
+pip install django
+```
+
+### config setting (프로젝트 생성)
+아래 명령어를 프로젝트 전체의 설정을 담당하는 폴더를 생성합니다. 
+
+```python
+django-admin startproject config . # O
+django-admin startproject config  # X
+```
+
+### migrate
+
+```python
+python manage.py migrate
+```
+
+
+
+### 작업 내역 확인을 위해 서버 실행
+
+```python
+python manage.py runserver
+```
+
+### 관리자 계정 생성
+
+```python
+python manage.py createsuperuser
+
+# 계정: admin
+# 이메일: Your email
+# 비밀번호: admin1234
+```
+
+- 관리자 계정 생성 후 
+- http://127.0.0.1:8000/admin/ 에서 관리자 접속
+
+
+
+--- 
+
+### 애플리케이션 생성
+
+```python
+python manage.py startapp polls
+```
