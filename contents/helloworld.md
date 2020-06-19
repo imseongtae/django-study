@@ -107,10 +107,11 @@ python manage.py createsuperuser
 - http://127.0.0.1:8000/admin/ 에서 관리자 접속
 
 
-
 --- 
 
-### 애플리케이션 생성
+## 과제
+- hello world를 찍어보세요
+- hello world를 json data type으로 응답해보세요. 
 
 ```python
 python manage.py startapp polls
