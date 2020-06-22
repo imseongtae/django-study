@@ -110,9 +110,79 @@ python manage.py createsuperuser
 --- 
 
 ## 과제
-- hello world를 찍어보세요
-- hello world를 json data type으로 응답해보세요. 
+1. hello world를 찍어보세요
+1. hello world를 json data type으로 응답해보세요. 예시 `"content": "hello world~"`
+
+
+### 과제를 진행하기 위한 길잡이
+
+#### 1. app 생성
 
 ```python
-python manage.py startapp polls
+python manage.py startapp hello
+```
+
+#### 2. 프로젝트 path 설정
+`include` 함수를 import하여 hello_world url로 요청하는 경로에는 `hello.urls` 가 대응하도록 설정
+
+```python
+from django.urls import path, include
+urlpatterns = [
+    '...'
+    path('hello_world/', include('hello.urls')),
+]
+```
+
+#### 3. app 생성
+생성한 hello app에 `urls.py` 생성 후 아래 내용 입력
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [    
+    path('', views.hello_world, name='hello_world'),
+]
+```
+
+hello app `views.py`에 아래의 내용 추가
+
+```python
+from django.http import HttpResponse
+
+# Create your views here.
+def hello_world(request):
+  return HttpResponse('Hello World!')
+```
+
+#### 4. url 접속
+
+```
+http://127.0.0.1:8000/hello_world/
+```
+
+
+#### 5. json 응답 길잡이
+hello app `views.py`에 아래의 내용 추가
+
+```python
+from django.http import HttpResponse, JsonResponse
+
+def hello_world_using_json(request):
+  return JsonResponse({"content": "hello world~"})
+```
+
+hello app `urls.py`에 아래 내용 입력
+
+```python
+urlpatterns = [    
+    path('', views.hello_world, name='hello_world'),
+    path('json', views.hello_world_using_json, name='hello_world_using_json'),
+]
+```
+
+**url 접속**
+
+```
+http://127.0.0.1:8000/hello_world/json
 ```
