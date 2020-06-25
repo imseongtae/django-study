@@ -116,6 +116,7 @@ STATICFILES_DIRS = [
 ## BaseTemplate
 ### MVT의 T를 확장하여 상속하기
 
+{% raw %}
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -142,6 +143,8 @@ STATICFILES_DIRS = [
 </body>
 </html>
 ```
+{% endraw %}
+
 **[⬆ back to top](#table-of-contents)**
 
 
