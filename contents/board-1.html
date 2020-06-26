@@ -1,0 +1,449 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>board - 1 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="board.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="helloworld.html">
+            
+                <a href="helloworld.html">
+            
+                    
+                    hello world
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="polls.html">
+            
+                <a href="polls.html">
+            
+                    
+                    polls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="bookmark.html">
+            
+                <a href="bookmark.html">
+            
+                    
+                    bookmark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="board.html">
+            
+                <a href="board.html">
+            
+                    
+                    board
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="board-1.html">
+            
+                <a href="board-1.html">
+            
+                    
+                    board - 1
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >board - 1</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="board">Board</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#basetemplate">BaseTemplate</a></li>
+<li><a href="#board-model">Board Model</a></li>
+<li><a href="#board-list-view">Board List View</a></li>
+<li><a href="#board-list-template">Board List Template</a></li>
+</ol>
+<hr>
+<h2 id="basetemplate">BaseTemplate</h2>
+<h3 id="mvt&#xC758;-t&#xB97C;-&#xD655;&#xC7A5;&#xD558;&#xC5EC;-&#xC0C1;&#xC18D;&#xD558;&#xAE30;">MVT&#xC758; T&#xB97C; &#xD655;&#xC7A5;&#xD558;&#xC5EC; &#xC0C1;&#xC18D;&#xD558;&#xAE30;</h3>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Base<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span>
+<span class="hljs-comment">&lt;!--    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/bootstrap.min.css&quot; /&gt;--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://code.jquery.com/jquery-3.4.1.slim.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--  container  --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+    {% block contents %}
+    {% endblock %}
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- //container --&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="board-model">Board Model</h2>
+<p>writer &#xD544;&#xB4DC;&#xC5D0;&#xB294; ForeignKey&#xB97C; &#xD1B5;&#xD574; User &#xD14C;&#xC774;&#xBE14;&#xACFC; &#xC5F0;&#xACB0;&#xD55C; &#xAC12;&#xC744; &#xB123;&#xB294;&#xB2E4;.
+ForeignKey &#xBA54;&#xC18C;&#xB4DC;&#xC758; &#xC778;&#xC790;&#xAC12;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xB294; <code>on_delete</code>&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xCC45;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB2E4;.
+<code>on_delete</code>&#xC758; &#xAC12;&#xC73C;&#xB85C; <code>CASCADE</code>&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xBA74; user&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xC744; &#xB54C; user&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xB3C4; &#xD568;&#xAED8; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;. </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Board</span><span class="hljs-params">(models.Model)</span>:</span>
+    title = models.CharField(max_length=<span class="hljs-number">128</span>, verbose_name=<span class="hljs-string">&apos;&#xC81C;&#xBAA9;&apos;</span>)
+    contents = models.TextField(verbose_name=<span class="hljs-string">&apos;&#xB0B4;&#xC6A9;&apos;</span>) <span class="hljs-comment"># &#xAE38;&#xC774;&#xC5D0; &#xC81C;&#xD55C;&#xC774; &#xC5C6;&#xC74C;</span>
+    writer = models.ForeignKey(<span class="hljs-string">&apos;user.User&apos;</span>, on_delete=models.CASCADE, verbose_name=<span class="hljs-string">&apos;&#xC791;&#xC131;&#xC790;&apos;</span>)
+
+    registered_dttm = models.DateTimeField(auto_now_add=<span class="hljs-keyword">True</span>, verbose_name=<span class="hljs-string">&apos;&#xB4F1;&#xB85D;&#xC2DC;&#xAC04;&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.title
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        db_table = <span class="hljs-string">&apos;board&apos;</span>
+        verbose_name = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
+        verbose_name_plural = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="board-list-view">Board List View</h2>
+<p><code>boards</code> &#xD544;&#xB4DC;&#xB97C; &#xD1B5;&#xD574;&#xC11C; board &#xB97C; &#xAC00;&#xC838;&#xC628; &#xB2E4;&#xC74C; &#xB2E8;&#xCD95;&#xD568;&#xC218; render&#xB97C; &#xD1B5;&#xD574; Template &#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD55C;&#xB2E4;.
+<code>Board.objects.all().order_by</code>&#xC758; &#xBA54;&#xC11C;&#xB4DC;&#xB85C; dash(-)&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xAC12;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xBA74; &#xC5ED;&#xC21C; &#xC815;&#xB82C;(&#xB0B4;&#xB9BC;&#xCC28;&#xC21C;)&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;. 
+<code>page</code>&#xBCC0;&#xC218;&#xC5D0;&#xB294; &#xD398;&#xC774;&#xC9C0; &#xBC88;&#xD638;&#xB97C; get&#xD615;&#xD0DC;&#xB85C; &#xBC1B;&#xACE0;, p&#xB77C;&#xB294; &#xAC12;&#xC73C;&#xB85C; &#xBC1B;&#xB294; &#xB370; &#xC5C6;&#xB2E4;&#xBA74; &#xCCAB; &#xBC88;&#xC9F8; &#xD398;&#xC774;&#xC9C0;&#xB85C; &#xC9C0;&#xC815;
+&#xADF8;&#xB9AC;&#xACE0; <code>page</code>&#xB97C; int&#xD615;&#xC73C;&#xB85C; &#xBC14;&#xAFBC;&#xB2E4;.
+Paginator &#xC0DD;&#xC131;&#xC790;&#xC758; &#xC778;&#xC790;&#xB85C; &#xD55C; &#xD398;&#xC774;&#xC9C0;&#xC5D0; &#xB098;&#xC624;&#xB294; &#xD398;&#xC774;&#xC9C0;&#xC758; &#xC218;&#xB97C; &#xC124;&#xC815;&#xD55C; &#xD6C4;&#xC5D0; &#xC774;&#xB97C; <code>paginator</code>&#xBCC0;&#xC218;&#xC5D0; &#xB2F4;&#xB294;&#xB2E4;.
+<code>paginator</code> &#xCC38;&#xC870;(&#xD074;&#xB798;&#xC2A4;) &#xBCC0;&#xC218;&#xB97C; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xD654;&#xBA74;&#xC5D0; &#xBCF4;&#xC5EC;&#xC904; &#xC218; &#xC788;&#xB2E4;. </p>
+<p><code>boards</code>&#xC5D0;&#xB294; Paginator&#xB97C; &#xD1B5;&#xD574; &#xC5BB;&#xC740; &#xD398;&#xC774;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xBCF4; &#xB4E4;&#xC5B4;&#xC788;&#xC74C;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render
+<span class="hljs-keyword">from</span> django.core.paginator <span class="hljs-keyword">import</span> Paginator
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Board
+
+<span class="hljs-comment"># Create your views here.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">board_list</span><span class="hljs-params">(request)</span>:</span>
+    all_boards = Board.objects.all().order_by(<span class="hljs-string">&apos;-id&apos;</span>) 
+
+    page = int(request.GET.get(<span class="hljs-string">&apos;p&apos;</span>, <span class="hljs-number">1</span>))
+    paginator = Paginator(all_boards, <span class="hljs-number">2</span>)
+
+    borads = paginator.get_page(page)        
+    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&apos;board_list.html&apos;</span>, {<span class="hljs-string">&apos;boards&apos;</span>: boards})
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="board-list-template">Board List Template</h2>
+<p><code>{% for board in boards %}</code> &#xB294;<br>for &#xBB38;&#xC744; &#xD1B5;&#xD574; <code>boards</code> &#xC694;&#xC18C;&#xB97C; &#xC21C;&#xD68C;&#xD558;&#xC5EC; <code>board</code>&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB294; &#xCF54;&#xB4DC;&#xC774;&#xB2E4;.</p>
+<p>&#xD398;&#xC774;&#xC9D5; &#xAE30;&#xB2A5;&#xC744; &#xB9CC;&#xB4E4; &#xB54C; <code>{% if boards.has_previous %}</code> &#xB610;&#xB294; <code>{% if boards.has_next %}</code>&#xB97C; &#xD1B5;&#xD574; &#xD398;&#xC774;&#xC9D5;&#xC744; &#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0; &#xB300;&#xD574; &#xBD84;&#xAE30;&#xCC98;&#xB9AC;&#xB97C; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.</p>
+<pre><code class="lang-html">{% extends &quot;base.html&quot; %}
+
+{% block contents %}
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row mt-5&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-12&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table table-light&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">thead</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;thead-light&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>#<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>&#xC81C;&#xBAA9;<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>&#xC544;&#xC774;&#xB514;<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>&#xC77C;&#xC2DC;<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-dark&quot;</span>&gt;</span>
+        {% for board in boards %}
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ board.id }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ board.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ board.writer }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{ board.registered_dttm }}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        {% endfor %}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-12&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pagination justify-content-center&quot;</span>&gt;</span>
+          {% if boards.has_previous %}
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;?p={{ boards.previous_page_number }}&quot;</span>&gt;</span>prev<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          {% else %}
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item disabled&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>prev<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          {% endif %}
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item active&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>{{ boards.number }} / {{ boards.paginator.num_pages }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+          {% if boards.has_next %}
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;?p={{ boards.next_page_number }}&quot;</span>&gt;</span>next<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+          {% else %}
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-item disabled&quot;</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;page-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>next<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          {% endif %}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-12&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span>&gt;</span>&#xAE00;&#xC4F0;&#xAE30;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+{% endblock %}
+</code></pre>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="board.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: board">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"board - 1","level":"1.5.1","depth":2,"previous":{"title":"board","level":"1.5","depth":1,"path":"contents/board.md","ref":"contents/board.md","articles":[{"title":"board - 1","level":"1.5.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board-1.md","mtime":"2020-06-26T01:38:50.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-26T01:45:01.890Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
