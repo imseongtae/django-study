@@ -109,12 +109,12 @@ def board_list(request):
 
 ## Board List Template
 
+{% raw %}
 `{% for board in boards %}` 는  
 for 문을 통해 `boards` 요소를 순회하여 `board`에 접근하는 코드이다.
 
 페이징 기능을 만들 때 `{% if boards.has_previous %}` 또는 `{% if boards.has_next %}`를 통해 페이징을 할 수 없을 경우에 대해 분기처리를 주의해야 한다.
 
-{% raw %}
 ```html
 {% extends "base.html" %}
 
