@@ -14,7 +14,7 @@ Django 학습을 통해 역량과 경험을 키우는 기회가 되기를 바랍
 그리고 스터디하며 명심해주어야 할 한 가지 사항!☝️  
 > 스터디때 따로 말씀드립니다. 꼭 지켜주셔야 해요!
 
-스터디원: dh, sh, ch, st
+스터디원: [dh](https://github.com/donghaeum), [sh](https://github.com/zappy-kim), [ch](https://github.com/YunChangHyunIT), [st](https://github.com/imseongtae)
 
 ### django를 선택한 이유
 djagno는 웹 프로그램을 개발하는 데 사용하는 파이썬 웹 프레임워크입니다. 제공하는 기능이 풍부하여 쉽고 빠르게 웹 개발이 가능합니다. 함께 study를 진행하는 분들이 python을 주 개발언어로 삼고 있는 점을 고려했습니다.

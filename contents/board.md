@@ -19,7 +19,7 @@
 
 ### config setting
 
-`config` 뒤에 `.`을 찍지 않으면 config 폴더 아래에 config 폴더가 생기므로  `config .`로 프로젝트를 생성할 수 있도록 주의한다
+`config` 뒤에 `.`을 찍지 않으면 config 폴더 아래에 config 폴더가 생기므로  `config .` 명령어를 입력하여 프로젝트를 생성할 수 있도록 주의한다
 
 ```
 django-admin startproject config  # X
@@ -27,8 +27,12 @@ django-admin startproject config . # O
 ```
 
 ### Django server 실행
+프로젝트가 서버가 올바르게 생성되었는지 확인하기 위해 서버 실행!
 
-프로젝트가 서버가 올바르게 생성되었는지 확인하기 위하여!
+```bash
+python3 manage.py runserver # mac
+python manage.py runserver # windows
+```
 
 
 ### ALLOWED_HOSTS
@@ -72,13 +76,15 @@ TIME_ZONE = 'Asia/Seoul'
 
 
 ### SQLitebrowser
+데이터가 DB에 쌓이는 내역을 확인하기 위해 SQLitebrowser를 설치합니다. 
+Windows 운영체제 사용자는 알아서 설치하세요
+
 **Homebrew**  
 If you prefer using Homebrew for macOS, our latest release can be installed via Homebrew Cask:
 
 ```
 brew cask install db-browser-for-sqlite
 ```
-
 
 
 ## Application Setting
@@ -97,7 +103,8 @@ brew cask install db-browser-for-sqlite
 ```
 
 ### Add Application 
-`settings.py`에서 사용할 애플리케이션 등록
+`settings.py`에서 사용할 애플리케이션 등록  
+본문의 [INSTALLED_APPS](#installed_apps) 를 참고하여 설정해도 됩니다!
 
 ```python
 INSTALLED_APPS = [
@@ -143,9 +150,7 @@ admin.site.register(Board, BoardAdmin)
 ```
 
 ### apps
-
-자동으로 등록이 되는 것 같은데?
-
+자동으로 등록이 되는 것 같은데 한 번 확인 부탁드립니다.
 
 ### Static Files
 `static` 폴더를 생성하고 그 안에 `CSS, JavaScript` 파일을 정리한다. 

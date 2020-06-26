@@ -89,7 +89,7 @@ python manage.py migrate
 
 ### 작업 내역 확인을 위해 서버 실행
 
-```python
+```bash
 python manage.py runserver
 ```
 

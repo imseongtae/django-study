@@ -227,11 +227,14 @@
 <hr>
 <h2 id="project-setting">Project Setting</h2>
 <h3 id="config-setting">config setting</h3>
-<p><code>config</code> &#xB4A4;&#xC5D0; <code>.</code>&#xC744; &#xCC0D;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; config &#xD3F4;&#xB354; &#xC544;&#xB798;&#xC5D0; config &#xD3F4;&#xB354;&#xAC00; &#xC0DD;&#xAE30;&#xBBC0;&#xB85C;  <code>config .</code>&#xB85C; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC8FC;&#xC758;&#xD55C;&#xB2E4;</p>
+<p><code>config</code> &#xB4A4;&#xC5D0; <code>.</code>&#xC744; &#xCC0D;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; config &#xD3F4;&#xB354; &#xC544;&#xB798;&#xC5D0; config &#xD3F4;&#xB354;&#xAC00; &#xC0DD;&#xAE30;&#xBBC0;&#xB85C;  <code>config .</code> &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xC5EC; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC8FC;&#xC758;&#xD55C;&#xB2E4;</p>
 <pre><code>django-admin startproject config  # X
 django-admin startproject config . # O
 </code></pre><h3 id="django-server-&#xC2E4;&#xD589;">Django server &#xC2E4;&#xD589;</h3>
-<p>&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC11C;&#xBC84;&#xAC00; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD558;&#xC5EC;!</p>
+<p>&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC11C;&#xBC84;&#xAC00; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC11C;&#xBC84; &#xC2E4;&#xD589;!</p>
+<pre><code class="lang-bash">python3 manage.py runserver <span class="hljs-comment"># mac</span>
+python manage.py runserver <span class="hljs-comment"># windows</span>
+</code></pre>
 <h3 id="allowedhosts">ALLOWED_HOSTS</h3>
 <p><code>DEBUG</code>&#xAC00; <code>True</code>&#xC774;&#xBA74; &#xAC1C;&#xBC1C; &#xBAA8;&#xB4DC; <code>DEBUG</code>&#xAC00; <code>False</code>&#xC774;&#xBA74; &#xC6B4;&#xC601;&#xBAA8;&#xB4DC;&#xB85C; &#xC7A5;&#xACE0;&#xAC00; &#xC778;&#xC2DD;&#xD558;&#xBBC0;&#xB85C;<br>&#xC6B4;&#xC601;&#xBAA8;&#xB4DC;&#xB85C; &#xC124;&#xC815;&#xD560; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC11C;&#xBC84;&#xC758; IP&#xB098; &#xB3C4;&#xBA54;&#xC778;&#xC744; &#xC9C0;&#xC815;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.<br>&#xAC1C;&#xBC1C;&#xBAA8;&#xB4DC;&#xB294; &#xAC12;&#xC744; &#xB530;&#xB85C; &#xC124;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; <code>[&apos;localhost&apos;]</code>&#xB85C; &#xC778;&#xC2DD;&#xD568;</p>
 <pre><code class="lang-python">DEBUG = <span class="hljs-keyword">True</span>
@@ -257,6 +260,8 @@ ALLOWED_HOSTS = []
 <pre><code class="lang-python">TIME_ZONE = <span class="hljs-string">&apos;Asia/Seoul&apos;</span>
 </code></pre>
 <h3 id="sqlitebrowser">SQLitebrowser</h3>
+<p>&#xB370;&#xC774;&#xD130;&#xAC00; DB&#xC5D0; &#xC313;&#xC774;&#xB294; &#xB0B4;&#xC5ED;&#xC744; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; SQLitebrowser&#xB97C; &#xC124;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. 
+Windows &#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xC0AC;&#xC6A9;&#xC790;&#xB294; &#xC54C;&#xC544;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xC138;&#xC694;</p>
 <p><strong>Homebrew</strong><br>If you prefer using Homebrew for macOS, our latest release can be installed via Homebrew Cask:</p>
 <pre><code>brew cask install db-browser-for-sqlite
 </code></pre><h2 id="application-setting">Application Setting</h2>
@@ -270,7 +275,7 @@ ALLOWED_HOSTS = []
 &#x2502; &#x2514;&#x2500;&#x2500; manage.py
 &#x2514;venv (&#xAC00;&#xC0C1;&#xD658;&#xACBD; &#xC124;&#xC815;)
 </code></pre><h3 id="add-application">Add Application</h3>
-<p><code>settings.py</code>&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xB4F1;&#xB85D;</p>
+<p><code>settings.py</code>&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xB4F1;&#xB85D;<br>&#xBCF8;&#xBB38;&#xC758; <a href="#installed_apps">INSTALLED_APPS</a> &#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC5EC; &#xC124;&#xC815;&#xD574;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;!</p>
 <pre><code class="lang-python">INSTALLED_APPS = [
     <span class="hljs-string">&apos;board&apos;</span>,
 ]
@@ -303,7 +308,7 @@ urlpatterns = [
 admin.site.register(Board, BoardAdmin)
 </code></pre>
 <h3 id="apps">apps</h3>
-<p>&#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB4F1;&#xB85D;&#xC774; &#xB418;&#xB294; &#xAC83; &#xAC19;&#xC740;&#xB370;?</p>
+<p>&#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB4F1;&#xB85D;&#xC774; &#xB418;&#xB294; &#xAC83; &#xAC19;&#xC740;&#xB370; &#xD55C; &#xBC88; &#xD655;&#xC778; &#xBD80;&#xD0C1;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.</p>
 <h3 id="static-files">Static Files</h3>
 <p><code>static</code> &#xD3F4;&#xB354;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xACE0; &#xADF8; &#xC548;&#xC5D0; <code>CSS, JavaScript</code> &#xD30C;&#xC77C;&#xC744; &#xC815;&#xB9AC;&#xD55C;&#xB2E4;. 
 <code>STATIC_URL</code>&#xC740; &#xD30C;&#xC77C;&#xC5D0; &#xC811;&#xADFC;&#xD588;&#xC744; &#xB54C; &#xC5B4;&#xB290; &#xD3F4;&#xB354;&#xC5D0; &#xC788;&#xB294;&#xC9C0; &#xC54C;&#xB824;&#xC8FC;&#xAE30; &#xC704;&#xD55C; &#xBCC0;&#xC218;&#xAC12;
@@ -366,7 +371,7 @@ STATICFILES_DIRS = [
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"board","level":"1.5","depth":1,"next":{"title":"board - 1","level":"1.5.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},"previous":{"title":"bookmark","level":"1.4","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board.md","mtime":"2020-06-26T01:44:08.266Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-26T01:46:31.019Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"board","level":"1.5","depth":1,"next":{"title":"board - 1","level":"1.5.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},"previous":{"title":"bookmark","level":"1.4","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board.md","mtime":"2020-06-26T01:53:21.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-26T02:00:19.298Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
