@@ -70,6 +70,29 @@ admin.site.register(Question)
 admin.site.register(Choice) 
 ```
 
+## Model
+
+```python
+from django.db import models
+
+# Create your models here.
+class Question(models.Model):
+  question_text = models.CharField(max_length=200)
+  pub_date = models.DateTimeField('date published')
+
+  # 객체를 문자열로 표현할 때 사용하는 함수
+  def __str__(self):
+    return self.question_text
+
+class Choice(models.Model):
+  question = models.ForeignKey(Question, on_delete=models.CASCADE)
+  choice_text = models.CharField(max_length=200)
+  votes = models.IntegerField(default=0)
+
+  def __str__(self):
+    return self.choice_text
+```
+
 ## Index View
 `render`단축함수를 통해 html 파일에 `context` 변수를 담아서 HTML 텍스트를 만들고, 이를 HttpResponse 객체를 통해 반환
 

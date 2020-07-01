@@ -283,6 +283,26 @@ urlpatterns = [
 admin.site.register(Question)
 admin.site.register(Choice)
 </code></pre>
+<h2 id="model">Model</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+
+<span class="hljs-comment"># Create your models here.</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Question</span><span class="hljs-params">(models.Model)</span>:</span>
+  question_text = models.CharField(max_length=<span class="hljs-number">200</span>)
+  pub_date = models.DateTimeField(<span class="hljs-string">&apos;date published&apos;</span>)
+
+  <span class="hljs-comment"># &#xAC1D;&#xCCB4;&#xB97C; &#xBB38;&#xC790;&#xC5F4;&#xB85C; &#xD45C;&#xD604;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD568;&#xC218;</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self.question_text
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Choice</span><span class="hljs-params">(models.Model)</span>:</span>
+  question = models.ForeignKey(Question, on_delete=models.CASCADE)
+  choice_text = models.CharField(max_length=<span class="hljs-number">200</span>)
+  votes = models.IntegerField(default=<span class="hljs-number">0</span>)
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">return</span> self.choice_text
+</code></pre>
 <h2 id="index-view">Index View</h2>
 <p><code>render</code>&#xB2E8;&#xCD95;&#xD568;&#xC218;&#xB97C; &#xD1B5;&#xD574; html &#xD30C;&#xC77C;&#xC5D0; <code>context</code> &#xBCC0;&#xC218;&#xB97C; &#xB2F4;&#xC544;&#xC11C; HTML &#xD14D;&#xC2A4;&#xD2B8;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0;, &#xC774;&#xB97C; HttpResponse &#xAC1D;&#xCCB4;&#xB97C; &#xD1B5;&#xD574; &#xBC18;&#xD658;</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">index</span><span class="hljs-params">(request)</span>:</span>
@@ -426,7 +446,7 @@ admin.site.register(Choice)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.3","depth":1,"next":{"title":"bookmark","level":"1.4","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"hello world","level":"1.2","depth":1,"path":"contents/helloworld.md","ref":"contents/helloworld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-06-22T07:08:26.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-26T02:03:44.422Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"polls","level":"1.3","depth":1,"next":{"title":"bookmark","level":"1.4","depth":1,"path":"contents/bookmark.md","ref":"contents/bookmark.md","articles":[]},"previous":{"title":"hello world","level":"1.2","depth":1,"path":"contents/helloworld.md","ref":"contents/helloworld.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/polls.md","mtime":"2020-07-01T05:15:08.891Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-01T05:15:23.389Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
