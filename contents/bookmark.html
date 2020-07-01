@@ -257,25 +257,118 @@ urlpatterns = [
     path(<span class="hljs-string">&apos;board/&apos;</span>, include(<span class="hljs-string">&apos;board.urls&apos;</span>)),
 ]
 </code></pre>
+<h3 id="app-urls-setting">app urls setting</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path
-<span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views
+<span class="hljs-keyword">from</span> .views <span class="hljs-keyword">import</span> *
 
+<span class="hljs-comment"># &#xD328;&#xC2A4;&#xB791; &#xBDF0;&#xB97C; &#xC784;&#xD3EC;&#xD2B8; &#xD55C;&#xB2E4;.</span>
 urlpatterns = [
-    path(<span class="hljs-string">&apos;list&apos;</span>, views.board_list, name=<span class="hljs-string">&apos;board_list&apos;</span>),
+    path(<span class="hljs-string">&apos;&apos;</span>, BookmarkList.as_view(), name=<span class="hljs-string">&apos;list&apos;</span>),
+    path(<span class="hljs-string">&apos;add/&apos;</span>, BookmarkCreateView.as_view(), name=<span class="hljs-string">&apos;add&apos;</span>),
+    path(<span class="hljs-string">&apos;detail/&lt;int:pk&gt;/&apos;</span>, BookmarkDetailView.as_view(), name=<span class="hljs-string">&apos;detail&apos;</span>),
+    path(<span class="hljs-string">&apos;_update/&lt;int:pk&gt;/&apos;</span>, BookmarkUpdateView.as_view(), name=<span class="hljs-string">&apos;update&apos;</span>),
+    <span class="hljs-comment"># path(&apos;delete/&lt;int:pk&gt;/&apos;, BookmarkDeleteView.as_view(), name=&apos;delete&apos;),</span>
+    path(<span class="hljs-string">&apos;delete/&lt;int:pk&gt;/&apos;</span>, BookmarkDeleteView.as_view(), name=<span class="hljs-string">&apos;delete&apos;</span>),
 ]
 </code></pre>
 <h3 id="admin">admin</h3>
 <p><code>list_display</code>&#xD544;&#xB4DC;&#xC5D0;&#xB294; &#xD0C0;&#xC774;&#xD2C0;&#xB9CC; &#xB098;&#xC624;&#xAC8C;&#xB054; &#xC124;&#xC815;<br>&#xADF8;&#xB9AC;&#xACE0; &#xBCF4;&#xB4DC;&#xC5B4;&#xB4DC;&#xBBFC; &#xC5F0;&#xACB0;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> django.contrib <span class="hljs-keyword">import</span> admin
-<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Board
-
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Bookmark
 <span class="hljs-comment"># Register your models here.</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoardAdmin</span><span class="hljs-params">(admin.ModelAdmin)</span>:</span>
-    list_display = (<span class="hljs-string">&apos;title&apos;</span>, )
 
-admin.site.register(Board, BoardAdmin)
+admin.site.register(Bookmark) <span class="hljs-comment"># &#xBD81;&#xB9C8;&#xD06C;&#xB97C; &#xB123;&#xC5B4;&#xC8FC;&#xAE30;&#xB9CC; &#xD558;&#xBA74; &#xB41C;&#xB2E4;.</span>
 </code></pre>
-<h3 id="apps">apps</h3>
+<h2 id="model">Model</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+
+<span class="hljs-comment"># Create your models here.</span>
+<span class="hljs-comment"># URL, NAME</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Bookmark</span><span class="hljs-params">(models.Model)</span>:</span>
+    site_name = models.CharField(max_length=<span class="hljs-number">130</span>)
+    url = models.URLField(<span class="hljs-string">&apos;Site URL&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.site_name +<span class="hljs-string">&apos;:&apos;</span> + self.url
+</code></pre>
+<h2 id="view">View</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render
+<span class="hljs-keyword">from</span> django.views.generic <span class="hljs-keyword">import</span> ListView, CreateView, DetailView, UpdateView, DeleteView
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse_lazy
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Bookmark
+
+<span class="hljs-comment"># Create your views here.</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookmarkList</span><span class="hljs-params">(ListView)</span>:</span>
+    model = Bookmark
+    <span class="hljs-comment"># context_object_name = &apos;latest_list&apos;</span>
+    paginate_by = <span class="hljs-number">5</span>
+    <span class="hljs-comment"># &#xD55C; &#xD398;&#xC774;&#xC9C0;&#xC5D0; &#xBCF4;&#xC5EC;&#xC904; &#xAC1C;&#xC218;&#xB97C; &#xC815;&#xD574;&#xC900;&#xB2E4;.</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookmarkCreateView</span><span class="hljs-params">(CreateView)</span>:</span>
+    model = Bookmark
+    fields = [<span class="hljs-string">&apos;site_name&apos;</span>, <span class="hljs-string">&apos;url&apos;</span>] <span class="hljs-comment"># &#xBAA8;&#xB378; &#xC18D;&#xC131;</span>
+    success_url = reverse_lazy(<span class="hljs-string">&apos;list&apos;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookmarkDetailView</span><span class="hljs-params">(DetailView)</span>:</span>
+    model = Bookmark
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookmarkUpdateView</span><span class="hljs-params">(UpdateView)</span>:</span>
+    model = Bookmark
+    fields = [<span class="hljs-string">&apos;site_name&apos;</span>, <span class="hljs-string">&apos;url&apos;</span>]
+    success_url = reverse_lazy(<span class="hljs-string">&apos;list&apos;</span>) <span class="hljs-comment"># &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC9C4;&#xD589;&#xC774; &#xB418;&#xBA74; &#xB9AC;&#xC2A4;&#xD2B8;&#xB85C; &#xAC04;&#xB2E4;.</span>
+    template_name_suffix = <span class="hljs-string">&apos;_update&apos;</span>
+
+<span class="hljs-comment"># class BookmarkDeleteView(DeleteView):</span>
+<span class="hljs-comment">#     model = Bookmark</span>
+<span class="hljs-comment">#     # template_name = &apos;bookmark_confirm_delete&apos;</span>
+<span class="hljs-comment">#     # fields = [&apos;site_name&apos;, &apos;url&apos;]</span>
+<span class="hljs-comment">#     success_url = reverse_lazy(&apos;list&apos;) # &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC9C4;&#xD589;&#xC774; &#xB418;&#xBA74; &#xB9AC;&#xC2A4;&#xD2B8;&#xB85C; &#xAC04;&#xB2E4;.</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookmarkDeleteView</span><span class="hljs-params">(DeleteView)</span>:</span>
+    model = Bookmark
+    fields = [<span class="hljs-string">&apos;site_name&apos;</span>, <span class="hljs-string">&apos;url&apos;</span>]
+    success_url = reverse_lazy(<span class="hljs-string">&apos;list&apos;</span>)
+</code></pre>
+<h2 id="template">Template</h2>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>{% block title %} {% endblock %} <span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://code.jquery.com/jquery-3.4.1.slim.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar navbar-expand-lg navbar-light bg-light&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-brand&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>Bookmark<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-toggler&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">&quot;collapse&quot;</span> <span class="hljs-attr">data-target</span>=<span class="hljs-string">&quot;#navbarSupportedContent&quot;</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">&quot;navbarSupportedContent&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Toggle navigation&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-toggler-icon&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collapse navbar-collapse&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;navbarSupportedContent&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;navbar-nav mr-auto&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-item active&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;nav-link&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span>Home <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>(current)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  {% block content %}
+
+    {% endblock %}
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
 
                                 
@@ -320,7 +413,7 @@ admin.site.register(Board, BoardAdmin)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"bookmark","level":"1.4","depth":1,"next":{"title":"board","level":"1.5","depth":1,"path":"contents/board.md","ref":"contents/board.md","articles":[{"title":"board - 1","level":"1.5.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},{"title":"board - 2","level":"1.5.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]}]},"previous":{"title":"polls","level":"1.3","depth":1,"path":"contents/polls.md","ref":"contents/polls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/bookmark.md","mtime":"2020-06-22T07:08:26.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-01T05:15:23.389Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"bookmark","level":"1.4","depth":1,"next":{"title":"board","level":"1.5","depth":1,"path":"contents/board.md","ref":"contents/board.md","articles":[{"title":"board - 1","level":"1.5.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},{"title":"board - 2","level":"1.5.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]}]},"previous":{"title":"polls","level":"1.3","depth":1,"path":"contents/polls.md","ref":"contents/polls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/bookmark.md","mtime":"2020-07-01T05:22:45.096Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-01T05:22:57.098Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
