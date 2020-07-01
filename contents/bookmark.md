@@ -9,8 +9,6 @@ pythonanywhere를 통해 배포한
   1. [BaseTemplate](#BaseTemplate)
   1. [Board Model](#Board-Model)
 
- 
-
 ---
 
 ## Settings
