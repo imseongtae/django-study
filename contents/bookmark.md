@@ -18,7 +18,7 @@ pythonanywhere를 통해 배포한
 
 ```python
 INSTALLED_APPS = [
-    'board',
+    'bookmark',
 ]
 ```
 
@@ -27,10 +27,10 @@ INSTALLED_APPS = [
 ```python
 from django.contrib import admin
 from django.urls import path, include
-from user.views import home
+
 
 urlpatterns = [
-    path('board/', include('board.urls')),
+    path('bookmark/', include('bookmark.urls')),
 ]
 ```
 
