@@ -22,6 +22,16 @@ INSTALLED_APPS = [
 ]
 ```
 
+
+```python
+TEMPLATES = [
+    {
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    }
+]
+```
+
+
 ### URL and View Mapping
 
 ```python
