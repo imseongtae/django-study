@@ -154,7 +154,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="board.html">
+        <li class="chapter " data-level="1.6" data-path="user.html">
+            
+                <a href="user.html">
+            
+                    
+                    User
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="board.html">
             
                 <a href="board.html">
             
@@ -168,7 +181,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.6.1" data-path="board-1.html">
+        <li class="chapter active" data-level="1.7.1" data-path="board-1.html">
             
                 <a href="board-1.html">
             
@@ -181,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="board-2.html">
+        <li class="chapter " data-level="1.7.2" data-path="board-2.html">
             
                 <a href="board-2.html">
             
@@ -255,6 +268,7 @@
 <hr>
 <h2 id="basetemplate">BaseTemplate</h2>
 <h3 id="mvt&#xC758;-t&#xB97C;-&#xD655;&#xC7A5;&#xD558;&#xC5EC;-&#xC0C1;&#xC18D;&#xD558;&#xAE30;">MVT&#xC758; T&#xB97C; &#xD655;&#xC7A5;&#xD558;&#xC5EC; &#xC0C1;&#xC18D;&#xD558;&#xAE30;</h3>
+<p><code>base.html</code> &#xC0DD;&#xC131; &#xD6C4; &#xC544;&#xB798; &#xB0B4;&#xC6A9; &#xC791;&#xC131;&#xD558;&#xAE30;</p>
 <pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -281,28 +295,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
-<h2 id="board-model">Board Model</h2>
-<p>writer &#xD544;&#xB4DC;&#xC5D0;&#xB294; ForeignKey&#xB97C; &#xD1B5;&#xD574; User &#xD14C;&#xC774;&#xBE14;&#xACFC; &#xC5F0;&#xACB0;&#xD55C; &#xAC12;&#xC744; &#xB123;&#xB294;&#xB2E4;.
-ForeignKey &#xBA54;&#xC18C;&#xB4DC;&#xC758; &#xC778;&#xC790;&#xAC12;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xB294; <code>on_delete</code>&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xCC45;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB2E4;.
-<code>on_delete</code>&#xC758; &#xAC12;&#xC73C;&#xB85C; <code>CASCADE</code>&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xBA74; user&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xC744; &#xB54C; user&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xB3C4; &#xD568;&#xAED8; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;. </p>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Board</span><span class="hljs-params">(models.Model)</span>:</span>
-    title = models.CharField(max_length=<span class="hljs-number">128</span>, verbose_name=<span class="hljs-string">&apos;&#xC81C;&#xBAA9;&apos;</span>)
-    contents = models.TextField(verbose_name=<span class="hljs-string">&apos;&#xB0B4;&#xC6A9;&apos;</span>) <span class="hljs-comment"># &#xAE38;&#xC774;&#xC5D0; &#xC81C;&#xD55C;&#xC774; &#xC5C6;&#xC74C;</span>
-    writer = models.ForeignKey(<span class="hljs-string">&apos;user.User&apos;</span>, on_delete=models.CASCADE, verbose_name=<span class="hljs-string">&apos;&#xC791;&#xC131;&#xC790;&apos;</span>)
-
-    registered_dttm = models.DateTimeField(auto_now_add=<span class="hljs-keyword">True</span>, verbose_name=<span class="hljs-string">&apos;&#xB4F1;&#xB85D;&#xC2DC;&#xAC04;&apos;</span>)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-keyword">return</span> self.title
-
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
-        db_table = <span class="hljs-string">&apos;board&apos;</span>
-        verbose_name = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
-        verbose_name_plural = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
-</code></pre>
-<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id=""> </h2>
 <h2 id="board-list-view">Board List View</h2>
 <p><code>boards</code> &#xD544;&#xB4DC;&#xB97C; &#xD1B5;&#xD574;&#xC11C; board &#xB97C; &#xAC00;&#xC838;&#xC628; &#xB2E4;&#xC74C; &#xB2E8;&#xCD95;&#xD568;&#xC218; render&#xB97C; &#xD1B5;&#xD574; Template &#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD55C;&#xB2E4;.
 <code>Board.objects.all().order_by</code>&#xC758; &#xBA54;&#xC11C;&#xB4DC;&#xB85C; dash(-)&#xAC00; &#xD3EC;&#xD568;&#xB41C; &#xAC12;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xBA74; &#xC5ED;&#xC21C; &#xC815;&#xB82C;(&#xB0B4;&#xB9BC;&#xCC28;&#xC21C;)&#xC744; &#xC758;&#xBBF8;&#xD55C;&#xB2E4;. 
@@ -327,6 +320,9 @@ Paginator &#xC0DD;&#xC131;&#xC790;&#xC758; &#xC778;&#xC790;&#xB85C; &#xD55C; &#x
 </code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
 <h2 id="board-list-template">Board List Template</h2>
+<ul>
+<li><code>board_list.html</code> &#xC0DD;&#xC131; &#xD6C4; &#xC544;&#xB798; &#xB0B4;&#xC6A9; &#xC791;&#xC131;</li>
+</ul>
 <p><code>{% for board in boards %}</code> &#xB294;<br>for &#xBB38;&#xC744; &#xD1B5;&#xD574; <code>boards</code> &#xC694;&#xC18C;&#xB97C; &#xC21C;&#xD68C;&#xD558;&#xC5EC; <code>board</code>&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB294; &#xCF54;&#xB4DC;&#xC774;&#xB2E4;.</p>
 <p>&#xD398;&#xC774;&#xC9D5; &#xAE30;&#xB2A5;&#xC744; &#xB9CC;&#xB4E4; &#xB54C; <code>{% if boards.has_previous %}</code> &#xB610;&#xB294; <code>{% if boards.has_next %}</code>&#xB97C; &#xD1B5;&#xD574; &#xD398;&#xC774;&#xC9D5;&#xC744; &#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0; &#xB300;&#xD574; &#xBD84;&#xAE30;&#xCC98;&#xB9AC;&#xB97C; &#xC8FC;&#xC758;&#xD574;&#xC57C; &#xD55C;&#xB2E4;.</p>
 <pre><code class="lang-html">{% extends &quot;base.html&quot; %}
@@ -442,7 +438,7 @@ Paginator &#xC0DD;&#xC131;&#xC790;&#xC758; &#xC778;&#xC790;&#xB85C; &#xD55C; &#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"board - 1","level":"1.6.1","depth":2,"next":{"title":"board - 2","level":"1.6.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]},"previous":{"title":"board","level":"1.6","depth":1,"path":"contents/board.md","ref":"contents/board.md","articles":[{"title":"board - 1","level":"1.6.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},{"title":"board - 2","level":"1.6.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board-1.md","mtime":"2020-06-26T01:46:20.499Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-01T05:59:13.466Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"board - 1","level":"1.7.1","depth":2,"next":{"title":"board - 2","level":"1.7.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]},"previous":{"title":"board","level":"1.7","depth":1,"path":"contents/board.md","ref":"contents/board.md","articles":[{"title":"board - 1","level":"1.7.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},{"title":"board - 2","level":"1.7.2","depth":2,"path":"contents/board-2.md","ref":"contents/board-2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board-1.md","mtime":"2020-07-01T18:05:31.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-05T08:00:07.364Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

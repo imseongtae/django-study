@@ -138,12 +138,12 @@ class UserConfig(AppConfig):
 
 ### 상속받는 방법
 
+{% raw %}
 1. `{% extends 'base.html' %}` 최상단에 작성
 1. 시작 태그처럼 사용 `{% block contents %}`
 1. 구현할 화면의 템플릿을 만들고
 1. 닫는 태그처럼 사용 `{% endblock %}`
 
-{% raw %}
 ```html
 {% extends 'base.html' %}
 

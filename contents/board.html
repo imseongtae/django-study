@@ -60,7 +60,7 @@
     <link rel="next" href="board-1.html" />
     
     
-    <link rel="prev" href="bookmark-2.html" />
+    <link rel="prev" href="user.html" />
     
 
     </head>
@@ -154,7 +154,20 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="board.html">
+        <li class="chapter " data-level="1.6" data-path="user.html">
+            
+                <a href="user.html">
+            
+                    
+                    User
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="board.html">
             
                 <a href="board.html">
             
@@ -168,7 +181,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="board-1.html">
+        <li class="chapter " data-level="1.7.1" data-path="board-1.html">
             
                 <a href="board-1.html">
             
@@ -181,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="board-2.html">
+        <li class="chapter " data-level="1.7.2" data-path="board-2.html">
             
                 <a href="board-2.html">
             
@@ -252,11 +265,22 @@
 </ol>
 <hr>
 <h2 id="project-setting">Project Setting</h2>
+<pre><code class="lang-bash">mkdir board-using-login
+<span class="hljs-built_in">cd</span> board-using-login
+</code></pre>
 <h3 id="config-setting">config setting</h3>
 <p><code>config</code> &#xB4A4;&#xC5D0; <code>.</code>&#xC744; &#xCC0D;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; config &#xD3F4;&#xB354; &#xC544;&#xB798;&#xC5D0; config &#xD3F4;&#xB354;&#xAC00; &#xC0DD;&#xAE30;&#xBBC0;&#xB85C;  <code>config .</code> &#xBA85;&#xB839;&#xC5B4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xC5EC; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC8FC;&#xC758;&#xD55C;&#xB2E4;</p>
 <pre><code>django-admin startproject config  # X
 django-admin startproject config . # O
-</code></pre><h3 id="django-server-&#xC2E4;&#xD589;">Django server &#xC2E4;&#xD589;</h3>
+</code></pre><h3 id="mac&#xC758;-&#xACBD;&#xC6B0;-&#xAC00;&#xC0C1;&#xD658;&#xACBD;-&#xC124;&#xC815;">Mac&#xC758; &#xACBD;&#xC6B0; &#xAC00;&#xC0C1;&#xD658;&#xACBD; &#xC124;&#xC815;</h3>
+<pre><code class="lang-bash">python3 -m venv venv
+</code></pre>
+<p>&#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xAC00;&#xC0C1; &#xD658;&#xACBD;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xB294; &#xD30C;&#xC77C;</p>
+<pre><code>source venv/bin/activate
+</code></pre><h3 id="djangp-&#xC124;&#xCE58;">djangp &#xC124;&#xCE58;</h3>
+<pre><code class="lang-bash">pip install django
+</code></pre>
+<h3 id="django-server-&#xC2E4;&#xD589;">Django server &#xC2E4;&#xD589;</h3>
 <p>&#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xAC00; &#xC11C;&#xBC84;&#xAC00; &#xC62C;&#xBC14;&#xB974;&#xAC8C; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC11C;&#xBC84; &#xC2E4;&#xD589;!</p>
 <pre><code class="lang-bash">python3 manage.py runserver <span class="hljs-comment"># mac</span>
 python manage.py runserver <span class="hljs-comment"># windows</span>
@@ -268,9 +292,10 @@ ALLOWED_HOSTS = []
 </code></pre>
 <h3 id="installedapps">INSTALLED_APPS</h3>
 <p>&#xC7A5;&#xACE0;&#xC5D0;&#xC11C;&#xB294; <code>INSTALLED_APPS</code>&#xC5D0; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC774; &#xB4F1;&#xB85D;&#xB418;&#xC5B4;&#xC57C; &#xD558;&#xB294;&#xB370;, &#xC774; &#xB54C; &#xAC04;&#xB2E8;&#xD558;&#xAC8C; &#xC560;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC758; &#xC774;&#xB984;&#xB9CC; &#xC9C0;&#xC815;&#xD560; &#xC218; &#xC788;&#xC9C0;&#xB9CC;, &#xB354; &#xC815;&#xD655;&#xD558;&#xAC8C;&#xB294; &#xC124;&#xC815; &#xD074;&#xB798;&#xC2A4;&#xB85C; &#xB4F1;&#xB85D;&#xD574;&#xC57C; &#xD55C;&#xB2E4;. &#xC124;&#xC815; &#xD074;&#xB798;&#xC2A4;&#xB294; &apos;polls&apos; &#xC571;&#xC758; <code>apps.py</code>&#xC5D0; &#xC0DD;&#xC131;&#xB41C; &#xD074;&#xB798;&#xC2A4; &apos;PollsConfig&apos;&#xB97C; &#xB9D0;&#xD55C;&#xB2E4;.</p>
-<pre><code class="lang-python3">INSTALLED_APPS = [
+<pre><code class="lang-python">INSTALLED_APPS = [
   ...
-  &apos;polls.apps.PollsConfig&apos;,
+  <span class="hljs-string">&apos;user&apos;</span>, <span class="hljs-comment"># App &#xC774;&#xB984;&#xC5D0; &#xB9DE;&#xAC8C; &#xC124;&#xC815;&#xD558;&#xAE30;</span>
+  <span class="hljs-string">&apos;board&apos;</span>
 ]
 </code></pre>
 <h3 id="databases-engine">DATABASES Engine</h3>
@@ -285,13 +310,38 @@ ALLOWED_HOSTS = []
 <p><code>UTC</code> &#xC138;&#xACC4; &#xD45C;&#xC900;&#xC2DC;&#xB97C; &#xD55C;&#xAD6D;&#xC2DC;&#xAC04;&#xC73C;&#xB85C; &#xBCC0;&#xACBD;</p>
 <pre><code class="lang-python">TIME_ZONE = <span class="hljs-string">&apos;Asia/Seoul&apos;</span>
 </code></pre>
+<h3 id="static-&#xC124;&#xC815;">static &#xC124;&#xC815;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># Static files (CSS, JavaScript, Images)</span>
+<span class="hljs-comment"># https://docs.djangoproject.com/en/3.0/howto/static-files/</span>
+
+STATIC_URL = <span class="hljs-string">&apos;/static/&apos;</span>
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, <span class="hljs-string">&apos;static&apos;</span>)
+]
+</code></pre>
 <h3 id="sqlitebrowser">SQLitebrowser</h3>
 <p>&#xB370;&#xC774;&#xD130;&#xAC00; DB&#xC5D0; &#xC313;&#xC774;&#xB294; &#xB0B4;&#xC5ED;&#xC744; &#xD655;&#xC778;&#xD558;&#xAE30; &#xC704;&#xD574; SQLitebrowser&#xB97C; &#xC124;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. 
 Windows &#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xC0AC;&#xC6A9;&#xC790;&#xB294; &#xC54C;&#xC544;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xC138;&#xC694;</p>
 <p><strong>Homebrew</strong><br>If you prefer using Homebrew for macOS, our latest release can be installed via Homebrew Cask:</p>
 <pre><code>brew cask install db-browser-for-sqlite
 </code></pre><h2 id="application-setting">Application Setting</h2>
+<h3 id="app-&#xC0DD;&#xC131;">App &#xC0DD;&#xC131;</h3>
+<pre><code class="lang-python">python manage.py startapp board <span class="hljs-comment"># Windows</span>
+python3 manage.py startapp board <span class="hljs-comment"># mac</span>
+python3 manage.py startapp user <span class="hljs-comment"># user app&#xB3C4; &#xC0DD;&#xC131;&#xD574;&#xC8FC;&#xC138;&#xC694;</span>
+</code></pre>
+<h3 id="migrate-&#xC9C4;&#xD589;&#xD558;&#xAE30;">migrate &#xC9C4;&#xD589;&#xD558;&#xAE30;</h3>
+<ul>
+<li><code>migrate</code> &#xC9C4;&#xD589;</li>
+<li><code>makemigrations</code>&#xC740; &#xC571;&#xC758; &#xBAA8;&#xB378;(Model)&#xC744; &#xC791;&#xC131;&#xD558;&#xACE0; &#xC801;&#xC6A9;&#xD558;&#xAE30;</li>
+</ul>
+<pre><code class="lang-python">python manage.py migrate
+</code></pre>
 <h3 id="folder-structure">Folder structure</h3>
+<ul>
+<li>Mac OS&#xC758; &#xACBD;&#xC6B0; &#xAC00;&#xC0C1;&#xD658;&#xACBD; &#xC124;&#xC815;&#xD558;&#xAE30;!</li>
+</ul>
 <pre><code>&lt;Root folder&gt;
 &#x2502;
 &#x251C;&lt;community_project&gt;
@@ -319,7 +369,9 @@ urlpatterns = [
 <span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> views
 
 urlpatterns = [
-    path(<span class="hljs-string">&apos;list&apos;</span>, views.board_list, name=<span class="hljs-string">&apos;board_list&apos;</span>),
+  path(<span class="hljs-string">&apos;list/&apos;</span>, views.board_list, name=<span class="hljs-string">&apos;board_list&apos;</span>),
+  path(<span class="hljs-string">&apos;detail/&lt;int:pk&gt;/&apos;</span>, views.board_detail),
+  path(<span class="hljs-string">&apos;write/&apos;</span>, views.board_write)
 ]
 </code></pre>
 <h3 id="admin">admin</h3>
@@ -354,6 +406,31 @@ STATICFILES_DIRS = [
 ]
 </code></pre>
 <p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<h2 id="board-model">Board Model</h2>
+<p>writer &#xD544;&#xB4DC;&#xC5D0;&#xB294; ForeignKey&#xB97C; &#xD1B5;&#xD574; User &#xD14C;&#xC774;&#xBE14;&#xACFC; &#xC5F0;&#xACB0;&#xD55C; &#xAC12;&#xC744; &#xB123;&#xB294;&#xB2E4;.
+ForeignKey &#xBA54;&#xC18C;&#xB4DC;&#xC758; &#xC778;&#xC790;&#xAC12;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD558;&#xB294; <code>on_delete</code>&#xB294; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xCC45;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB2E4;.
+<code>on_delete</code>&#xC758; &#xAC12;&#xC73C;&#xB85C; <code>CASCADE</code>&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xBA74; user&#xAC00; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xC744; &#xB54C; user&#xAC00; &#xC791;&#xC131;&#xD55C; &#xAE00;&#xB4E4;&#xB3C4; &#xD568;&#xAED8; &#xC0AD;&#xC81C;&#xB41C;&#xB2E4;. </p>
+<ul>
+<li>&#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xC744; &#xC791;&#xC131; &#xD6C4; </li>
+<li><code>python manage.py makemigrations</code> &#xC9C4;&#xD589;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Board</span><span class="hljs-params">(models.Model)</span>:</span>
+    title = models.CharField(max_length=<span class="hljs-number">128</span>, verbose_name=<span class="hljs-string">&apos;&#xC81C;&#xBAA9;&apos;</span>)
+    contents = models.TextField(verbose_name=<span class="hljs-string">&apos;&#xB0B4;&#xC6A9;&apos;</span>) <span class="hljs-comment"># &#xAE38;&#xC774;&#xC5D0; &#xC81C;&#xD55C;&#xC774; &#xC5C6;&#xC74C;</span>
+    writer = models.ForeignKey(<span class="hljs-string">&apos;user.User&apos;</span>, on_delete=models.CASCADE, verbose_name=<span class="hljs-string">&apos;&#xC791;&#xC131;&#xC790;&apos;</span>)
+
+    registered_dttm = models.DateTimeField(auto_now_add=<span class="hljs-keyword">True</span>, verbose_name=<span class="hljs-string">&apos;&#xB4F1;&#xB85D;&#xC2DC;&#xAC04;&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.title
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        db_table = <span class="hljs-string">&apos;board&apos;</span>
+        verbose_name = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
+        verbose_name_plural = <span class="hljs-string">&apos;&#xAC8C;&#xC2DC;&#xAE00;&apos;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -381,7 +458,7 @@ STATICFILES_DIRS = [
 
             
                 
-                <a href="bookmark-2.html" class="navigation navigation-prev " aria-label="Previous page: bookmark - 2">
+                <a href="user.html" class="navigation navigation-prev " aria-label="Previous page: User">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -397,7 +474,7 @@ STATICFILES_DIRS = [
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"board","level":"1.6","depth":1,"next":{"title":"board - 1","level":"1.6.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},"previous":{"title":"bookmark - 2","level":"1.5","depth":1,"path":"contents/bookmark-2.md","ref":"contents/bookmark-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board.md","mtime":"2020-06-26T01:53:21.719Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-01T05:59:13.466Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"board","level":"1.7","depth":1,"next":{"title":"board - 1","level":"1.7.1","depth":2,"path":"contents/board-1.md","ref":"contents/board-1.md","articles":[]},"previous":{"title":"User","level":"1.6","depth":1,"path":"contents/user.md","ref":"contents/user.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{"BASE_URL":"https://imseongtae.github.io"},"plugins":["ga","-sharing"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158669989-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"contents/board.md","mtime":"2020-07-05T07:50:55.239Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-05T08:00:07.364Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
