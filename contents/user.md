@@ -110,9 +110,9 @@ class UserConfig(AppConfig):
 
 ### 상속하는 방법
 
+{% raw %}
 1. children 파일에서 구현할 영역을 `{% block contents %}`와 `{% endblock %}`를 통해 설정
 
-{% raw %}
 ```html
 <!DOCTYPE html>
 <html lang="en">
