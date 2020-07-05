@@ -15,6 +15,8 @@
 ## BaseTemplate
 ### MVT의 T를 확장하여 상속하기
 
+`base.html` 생성 후 아래 내용 작성하기
+
 {% raw %}
 ```html
 <!DOCTYPE html>
@@ -47,33 +49,7 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-## Board Model
-
-writer 필드에는 ForeignKey를 통해 User 테이블과 연결한 값을 넣는다.
-ForeignKey 메소드의 인자값으로 전달하는 `on_delete`는 사용자가 작성한 글들에 대한 정책을 설정할 수 있다.
-`on_delete`의 값으로 `CASCADE`를 전달하면 user가 삭제되었을 때 user가 작성한 글들도 함께 삭제된다. 
-
-```python
-from django.db import models
-
-class Board(models.Model):
-    title = models.CharField(max_length=128, verbose_name='제목')
-    contents = models.TextField(verbose_name='내용') # 길이에 제한이 없음
-    writer = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='작성자')
-
-    registered_dttm = models.DateTimeField(auto_now_add=True, verbose_name='등록시간')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        db_table = 'board'
-        verbose_name = '게시글'
-        verbose_name_plural = '게시글'
-```
-
-
-**[⬆ back to top](#table-of-contents)**
+## 
 
 
 ## Board List View
@@ -108,6 +84,8 @@ def board_list(request):
 
 
 ## Board List Template
+
+- `board_list.html` 생성 후 아래 내용 작성
 
 {% raw %}
 `{% for board in boards %}` 는  

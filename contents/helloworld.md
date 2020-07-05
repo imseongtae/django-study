@@ -106,8 +106,7 @@ python manage.py createsuperuser
 - 관리자 계정 생성 후 
 - http://127.0.0.1:8000/admin/ 에서 관리자 접속
 
-
---- 
+---
 
 ## 과제
 1. hello world를 찍어보세요
@@ -177,7 +176,7 @@ hello app `urls.py`에 아래 내용 입력
 ```python
 urlpatterns = [    
     path('', views.hello_world, name='hello_world'),
-    path('json', views.hello_world_using_json, name='hello_world_using_json'),
+    path('json/', views.hello_world_using_json, name='hello_world_using_json'),
 ]
 ```
 
