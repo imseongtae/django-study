@@ -20,6 +20,26 @@
 
 ## Settings
 
+폴더 구조 
+
+```bash
+.Root folder
+├── __init__.py
+├── admin.py
+├── apps.py
+├── forms.py
+├── migrations
+│   ├── 0001_initial.py
+├── models.py
+├── templates
+│   ├── base.html
+│   ├── home.html
+│   ├── login.html
+│   └── register.html
+├── tests.py
+├── urls.py
+└── views.py
+```
 
 ### Add Application 
 `settings.py`에서 사용할 애플리케이션 등록
@@ -49,7 +69,7 @@ urlpatterns = [
 ]
 ```
 
-`application`에서 작성
+`user application` `urls.py`에 작성
 
 ```python 
 from django.urls import path
@@ -110,6 +130,16 @@ class UserConfig(AppConfig):
 
 ### 상속하는 방법
 
+user앱 밑에 `templates` 폴더 생성 후 `base.html` 생성
+
+```bash
+├── templates
+│   ├── base.html
+│   ├── home.html
+│   ├── login.html
+│   └── register.html
+```
+
 {% raw %}
 1. children 파일에서 구현할 영역을 `{% block contents %}`와 `{% endblock %}`를 통해 설정
 
@@ -162,6 +192,47 @@ class UserConfig(AppConfig):
 
 **[⬆ back to top](#table-of-contents)**
 
+
+## HomeTemplate
+
+`home.html` 생성
+
+{% raw %}
+```html
+{% extends 'base.html' %}
+
+{% block contents %}
+<!--  Home  -->
+<div class="row mt-5">
+  <div class="col-12 text-center">
+    <h1>Home Page</h1>
+  </div>
+</div>
+
+<div class="row mt-5">
+  {% if request.session.user %}
+    <div class="col-12">
+      <button class="btn btn-primary btn-block" onclick="location.href='/user/logout/'">Logout</button>
+    </div>
+  {% else %}
+    <div class="col-6">
+      <button class="btn btn-primary btn-block" onclick="location.href='/user/login/'">Login</button>
+    </div>
+    <div class="col-6">
+      <button class="btn btn-primary btn-block" onclick="location.href='/user/register/'">Sign in</button>
+    </div>
+  {% endif %}
+</div>
+
+<div class="row mt-1">
+  <div class="col-12">
+    <button class="btn btn-primary btn-block" onclick="location.href='/board/list/'">View Post</button>
+  </div>
+</div>
+<!--  //Home  -->
+{% endblock %}
+```
+{% endraw %}
 
 
 ## Register
@@ -256,6 +327,8 @@ def register(request):
 ```
 
 ## Register Template
+
+`register.html` 생성 후 아래 내용 작성
 
 {% raw %}
 ```html
@@ -381,6 +454,7 @@ class LoginForm(forms.Form):
 
 ## Login Template
 
+`login.html` 생성 후 아래 내용 작성
 
 장고에서 관리해주는 `form` 객체는 form에서 필요한 것들을 기본적으로 만들어준다.
 `form` 객체의 태그는 장고가 자동으로 생성해주고, 사용자의 입력값을 자동으로 검증해준다.
