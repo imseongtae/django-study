@@ -11,13 +11,31 @@
 ---
 
 
-
 ## Project Setting
 
 ```bash
 mkdir board-using-login
 cd board-using-login
 ```
+
+```bash
+.Root folder
+├── admin.py
+├── apps.py
+├── forms.py
+├── migrations
+│   ├── 0001_initial.py
+├── models.py
+├── templates
+│   ├── base.html
+│   ├── board_detail.html
+│   ├── board_list.html
+│   └── board_write.html
+├── tests.py
+├── urls.py
+└── views.py
+```
+
 
 ### config setting
 
