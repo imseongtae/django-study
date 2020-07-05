@@ -52,14 +52,14 @@ django-admin startproject config . # O
 python3 -m venv venv
 ```
 
-터미널에서 가상 환경을 적용하는 파일
+터미널에서 가상 환경을 적용하는 방법
 
 ```
 source venv/bin/activate
 ```
 
 
-### djangp 설치
+### django 설치
 
 ```bash
 pip install django
@@ -91,8 +91,7 @@ ALLOWED_HOSTS = []
 ```python
 INSTALLED_APPS = [
   ...
-  'user', # App 이름에 맞게 설정하기
-  'board'
+  'board', # App 이름에 맞게 설정하기
 ]
 ```
 
